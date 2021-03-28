@@ -6,56 +6,55 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./jsnumber.component.css"]
 })
 export class JsnumberComponent implements OnInit {
-  numtoletter = 0;
+  numtoletter = "";
   phrase = "";
-
-  // System for American Numbering
-  th_val = ["", "thousand", "million", "billion", "trillion"];
-  // System for uncomment this line for Number of English
-  // var th_val = ['','thousand','million', 'milliard','billion'];
-
-  dg_val = [
-    "zero",
-    "one",
-    "two",
-    "three",
-    "four",
-    "five",
-    "six",
-    "seven",
-    "eight",
-    "nine"
-  ];
-  tn_val = [
-    "ten",
-    "eleven",
-    "twelve",
-    "thirteen",
-    "fourteen",
-    "fifteen",
-    "sixteen",
-    "seventeen",
-    "eighteen",
-    "nineteen"
-  ];
-  tw_val = [
-    "twenty",
-    "thirty",
-    "forty",
-    "fifty",
-    "sixty",
-    "seventy",
-    "eighty",
-    "ninety"
-  ];
 
   constructor() {}
 
   ngOnInit() {}
 
   onTransform() {
-    //function toWordsconver(s) {
-      s = this.numtoletter; 
+    // System for American Numbering
+    var th_val = ["", "thousand", "million", "billion", "trillion"];
+    // System for uncomment this line for Number of English
+    // var th_val = ['','thousand','million', 'milliard','billion'];
+
+    var dg_val = [
+      "zero",
+      "one",
+      "two",
+      "three",
+      "four",
+      "five",
+      "six",
+      "seven",
+      "eight",
+      "nine"
+    ];
+    var tn_val = [
+      "ten",
+      "eleven",
+      "twelve",
+      "thirteen",
+      "fourteen",
+      "fifteen",
+      "sixteen",
+      "seventeen",
+      "eighteen",
+      "nineteen"
+    ];
+    var tw_val = [
+      "twenty",
+      "thirty",
+      "forty",
+      "fifty",
+      "sixty",
+      "seventy",
+      "eighty",
+      "ninety"
+    ];
+
+    function toWordsconver(s) {
       s = s.toString();
       s = s.replace(/[\, ]/g, "");
       if (s != parseFloat(s)) return "not a number ";
@@ -88,7 +87,7 @@ export class JsnumberComponent implements OnInit {
       if (x_val != s.length) {
         var y_val = s.length;
         str_val += "point ";
-        for (var i = x_val + 1; i < y_val; i++)
+        for (var i: number = x_val + 1; i < y_val; i++)
           str_val += dg_val[n_val[i]] + " ";
       }
       return str_val.replace(/\s+/g, " ");
@@ -96,6 +95,6 @@ export class JsnumberComponent implements OnInit {
 
     console.log(this.numtoletter);
     console.log(this.phrase);
-    this.phrase = "Hello " + this.numtoletter;
+    this.phrase = "Hello " + toWordsconver(this.numtoletter);
   }
 }
