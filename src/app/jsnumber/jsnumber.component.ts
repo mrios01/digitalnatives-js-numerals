@@ -7,6 +7,7 @@ import { Component, OnInit } from "@angular/core";
 })
 export class JsnumberComponent implements OnInit {
   numtoletter = 0;
+  phrase = "";
 
   constructor() {}
 
@@ -14,5 +15,6 @@ export class JsnumberComponent implements OnInit {
 
   onTransform() {
     console.log(this.numtoletter);
+    console.log(this.phrase);
   }
 }
