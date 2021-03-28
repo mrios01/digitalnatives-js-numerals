@@ -16,6 +16,7 @@ export class JsnumberComponent implements OnInit {
   onTransform() {
     // System for American Numbering
     let th_val = ["", "thousand", "million", "billion", "trillion"];
+
     // System for uncomment this line for Number of English
     // let th_val = ['','thousand','million', 'milliard','billion'];
 
@@ -54,8 +55,6 @@ export class JsnumberComponent implements OnInit {
       "ninety"
     ];
 
-    // function toWordsconver(s) {
-    //s = s.toString();
     let s: any = this.numtoletter;
     s = s.replace(/[\, ]/g, "");
     if (s != parseFloat(s)) return "not a number ";
@@ -91,12 +90,6 @@ export class JsnumberComponent implements OnInit {
       for (let i: number = x_val + 1; i < y_val; i++)
         str_val += dg_val[n_val[i]] + " ";
     }
-    //return str_val.replace(/\s+/g, " ");
     this.phrase = this.numtoletter + " == " + str_val.replace(/\s+/g, " ");
-    //}
-
-    //console.log(this.numtoletter);
-    //console.log(this.phrase);
-    //this.phrase = "Hello " + toWordsconver(this.numtoletter);
   }
 }
